@@ -1,0 +1,10 @@
+.pokemon-card {
+  .card-img-top {
+    max-height: 96px;
+    object-fit: contain;
+  }
+
+  .card-title {
+    text-transform: capitalize;
+  }
+}

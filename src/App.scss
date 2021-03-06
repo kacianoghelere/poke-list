@@ -1,0 +1,93 @@
+html {
+  background: url('https://cdn1.vectorstock.com/i/thumb-large/34/80/pokeball-icon-sign-seamless-pattern-with-geometric-vector-11293480.jpg') repeat;
+}
+
+@mixin pokemon-type($background-color) {
+  background-color: $background-color;
+
+  &.faded {
+    background-color: transparentize($background-color, 0.75);
+  }
+}
+
+.pokemon-type {
+  &-normal {
+    @include pokemon-type(#babaaa);
+  }
+
+  &-fighting {
+    @include pokemon-type(#ba5444);
+  }
+
+  &-flying {
+    @include pokemon-type(#6699ff);
+  }
+
+  &-poison {
+    @include pokemon-type(#aa5499);
+  }
+
+  &-ground {
+    @include pokemon-type(#ddba54);
+  }
+
+  &-rock {
+    @include pokemon-type(#baaa66);
+  }
+
+  &-bug {
+    @include pokemon-type(#aabb22);
+  }
+
+  &-ghost {
+    @include pokemon-type(#6666bb);
+  }
+
+  &-steel {
+    @include pokemon-type(#aaaaba);
+  }
+
+  &-fire {
+    @include pokemon-type(#ff4421);
+  }
+
+  &-water {
+    @include pokemon-type(#3499ff);
+  }
+
+  &-grass {
+    @include pokemon-type(#77cc54);
+  }
+
+  &-electric {
+    @include pokemon-type(#ffcc33);
+  }
+
+  &-psychic {
+    @include pokemon-type(#ff5499);
+  }
+
+  &-ice {
+    @include pokemon-type(#77ddff);
+  }
+
+  &-dragon {
+    @include pokemon-type(#7766ee);
+  }
+
+  &-dark {
+    @include pokemon-type(#775544);
+  }
+
+  &-fairy {
+    @include pokemon-type(#ffaaed);
+  }
+
+  &-unknown {
+    @include pokemon-type(#000000);
+  }
+
+  &-shadow {
+    @include pokemon-type(#3E3355);
+  }
+}

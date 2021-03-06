@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import 'bootstrap/dist/css/bootstrap.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import Generation from './pages/Generation'
+import Generations from './pages/Generations'
+import NotFound from './pages/NotFound'
+import Pokemon from './pages/Pokemon'
+import './App.scss'
 
-export default App;
+const App = () => (
+  <Router>
+    <Switch>
+      <Route
+        component={Generations}
+        exact
+        path="/"
+      />
+      <Route
+        component={NotFound}
+        exact
+        path="/not-found"
+      />
+      <Route
+        component={Generation}
+        path="/generation/:generationName"
+      />
+      <Route
+        component={Pokemon}
+        path="/pokemon/:pokemonName"
+      />
+    </Switch>
+  </Router>
+)
+
+export default App
