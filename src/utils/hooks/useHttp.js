@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import axios from 'axios'
+
+import httpClient from '../services/http-client'
 
 const useHttp = (url) => {
   const [isLoading, setLoading] = useState(true)
@@ -14,13 +15,13 @@ const useHttp = (url) => {
 
       setHasError(false)
 
-      const response = await axios.get(url).then(({ data }) => data)
+      const response = await httpClient.get(url)
 
       setData(response)
-
-      setLoading(false)
     } catch (error) {
       setHasError(true)
+    } finally {
+      setLoading(false)
     }
   }
 

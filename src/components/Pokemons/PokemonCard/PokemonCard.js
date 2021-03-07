@@ -1,47 +1,60 @@
 import { Link } from 'react-router-dom'
-import { Img } from 'react-image'
+
 
 import useHttp from '../../../utils/hooks/useHttp'
-import PokemonType from '../PokemonType/PokemonType'
+import LoadingSpinner from '../../Misc/LoadingSpinner'
+import PokemonTypesList from '../PokemonTypesList/PokemonTypesList'
+import PokemonSprite from '../PokemonSprite/PokemonSprite'
 import './PokemonCard.scss'
+
+const buildUnkownPokemon = (pokemonName) => ({
+  id: '???',
+  name: pokemonName,
+  sprites: {},
+  types: [{
+    type: {
+      name: 'unknown'
+    }
+  }]
+})
+
+const PokemonData = ({ pokemon }) => {
+  const pokemonTypeClass = `pokemon-type-${pokemon?.types[0].type.name}`
+
+  return (
+    <>
+      <PokemonSprite
+        className={`card-img-top ${pokemonTypeClass} faded`}
+        pokemon={pokemon}
+      />
+      <div className="card-body">
+        <small className="pokemon-id">#{pokemon.id}</small>
+        <p className="text-capitalize mb-0">{pokemon.name}</p>
+        <PokemonTypesList pokemon={pokemon} />
+      </div>
+    </>
+  )
+}
 
 const PokemonCard = ({ pokemonName }) => {
   const {
     data: pokemon,
+    hasError,
     isLoading
   } = useHttp(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
 
-  const pokemonTypeClass = `pokemon-type-${pokemon?.types[0].type.name}`
-
   return (
-    <Link to={pokemon ? `/pokemon/${pokemonName}` : '/not-found'}>
-      <div className={`card pokemon-card ${pokemonTypeClass} faded mb-3`}>
-        {isLoading ? (
-          <div className="d-flex justify-content-center">
-            <div className="spinner-border" role="status">
-              <span className="sr-only">Loading...</span>
-            </div>
-          </div>
-        ) : (
-          <Img
-            alt={pokemonName}
-            className="card-img-top"
-            src={[
-              pokemon?.sprites?.front_default,
-              'https://cdn.iconscout.com/icon/free/png-256/question-mark-2646696-2194193.png'
-            ]}
-          />
-        )}
-        <div className="card-body">
-          <h5 className="card-title">{pokemonName}</h5>
-          {(pokemon?.types || []).map(({ type }) => (
-            <PokemonType
-              key={type.name}
-              typeName={type.name}
-            />
-          ))}
-        </div>
-      </div>
+    <Link
+      className="card pokemon-card mb-3"
+      to={pokemon ? `/pokemon/${pokemonName}` : null}
+    >
+      {isLoading ? (
+        <LoadingSpinner className="pokemon-loading" />
+      ) : hasError ? (
+        <PokemonData pokemon={buildUnkownPokemon(pokemonName)} />
+      ) : (
+        <PokemonData pokemon={pokemon} />
+      )}
     </Link>
   )
 }

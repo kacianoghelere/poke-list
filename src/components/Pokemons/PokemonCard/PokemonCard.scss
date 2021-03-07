@@ -1,10 +1,34 @@
 .pokemon-card {
-  .card-img-top {
+  color: #333;
+  border: none;
+  box-shadow: 0 1px 2px #00000030;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  .pokemon-loading {
+    min-height: 100px;
+  }
+
+  img {
+    background-color: #eee;
     max-height: 96px;
+    max-width: 100%;
     object-fit: contain;
   }
 
-  .card-title {
-    text-transform: capitalize;
+  .card-body {
+    position: relative;
+
+    .pokemon-id {
+      background-color: #fff;
+      border-top-right-radius: 4px;
+      color: #999;
+      left: 0;
+      padding: 4px 16px;
+      position: absolute;
+      top: -12px;
+    }
   }
 }

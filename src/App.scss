@@ -1,12 +1,16 @@
-html {
-  background: url('https://cdn1.vectorstock.com/i/thumb-large/34/80/pokeball-icon-sign-seamless-pattern-with-geometric-vector-11293480.jpg') repeat;
+body {
+  background-color: rgb(255, 104, 104);
 }
 
-@mixin pokemon-type($background-color) {
+@mixin pokemon-type($background-color, $text-color: white) {
   background-color: $background-color;
 
   &.faded {
     background-color: transparentize($background-color, 0.75);
+  }
+
+  &.colorize-text {
+    color: $text-color;
   }
 }
 
