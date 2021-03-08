@@ -19,12 +19,13 @@ const PokemonSearch = styled.input`
   }
 `
 
-const PokemonsList = ({ pokemons }) => {
+const PokemonsList = ({ generation }) => {
   const [filter, setFilter] = useState('')
 
-  const filteredPokemons = (pokemons || []).filter(({ name }) => {
-    return !filter || name.toLowerCase().includes(filter.toLowerCase())
-  })
+  const filteredPokemons = (generation.pokemon_species || [])
+    .filter(({ name }) => {
+      return !filter || name.toLowerCase().includes(filter.toLowerCase())
+    })
 
   return (
     <div className="pokemon-list">
@@ -42,7 +43,10 @@ const PokemonsList = ({ pokemons }) => {
             className="col mb-3"
             key={pokemon.name}
           >
-            <PokemonCard pokemonName={pokemon.name} key={pokemon.name} />
+            <PokemonCard
+              generationName={generation.name}
+              pokemonName={pokemon.name}
+            />
           </div>
         ))}
       </div>

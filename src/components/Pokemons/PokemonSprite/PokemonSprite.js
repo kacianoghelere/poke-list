@@ -1,9 +1,14 @@
+import styled from 'styled-components'
 
 import { Img } from 'react-image'
-import './PokemonSprite.scss'
+
+const PokemonImage = styled(Img)`
+  max-height: 96px;
+  max-width: 96px;
+`
 
 const PokemonSprite = ({ pokemon, spriteKey = 'front_default', ...props }) => (
-  <Img
+  <PokemonImage
     alt={pokemon.name}
     src={[
       pokemon?.sprites[spriteKey],

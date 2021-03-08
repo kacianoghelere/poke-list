@@ -23,12 +23,14 @@ const App = () => (
         path="/not-found"
       />
       <Route
-        component={Generation}
-        path="/generation/:generationName"
+        component={Pokemon}
+        exact
+        path="/generation/:generationName/pokemon/:pokemonName"
       />
       <Route
-        component={Pokemon}
-        path="/pokemon/:pokemonName"
+        component={Generation}
+        exact
+        path="/generation/:generationName"
       />
     </Switch>
   </Router>

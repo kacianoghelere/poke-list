@@ -1,9 +1,11 @@
 const PokemonBasicInfo = ({ pokemon }) => {
   return (
     <div className="card mb-3 pokemon-basic-info">
-      <div className="card-body">
-        <h5 className="card-title mb-0">Info</h5>
-      </div>
+      <img
+        alt={pokemon.name}
+        className="card-img-top"
+        src={pokemon?.sprites?.other['official-artwork'].front_default}
+      />
       <div className="list-group list-group-flush">
         <div className="list-group-item">
           <strong>Base exp</strong>: {pokemon.base_experience}

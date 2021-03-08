@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 import useHttp from '../utils/hooks/useHttp'
@@ -6,6 +7,22 @@ import PokemonBasicInfo from '../components/Pokemons/PokemonBasicInfo/PokemonBas
 import PokemonDetails from '../components/Pokemons/PokemonDetails/PokemonDetails'
 import PokemonStats from '../components/Pokemons/PokemonStats/PokemonStats'
 
+const Breadcrumb = styled.ol`
+  background-color: #fff5;
+
+  .breadcrumb-item,
+  .breadcrumb-item a {
+    color: white;
+    text-shadow: 1px 1px #0003;
+
+    &.active,
+    &:active {
+      color: white;
+      font-weight: bold;
+    }
+  }
+`
+
 const PokemonName = styled.h1`
   color: white;
   text-transform: capitalize;
@@ -13,7 +30,7 @@ const PokemonName = styled.h1`
 `
 
 const Pokemon = ({ match }) => {
-  const { pokemonName } = match.params
+  const { generationName, pokemonName } = match.params
 
   const {
     data: pokemon,
@@ -32,6 +49,19 @@ const Pokemon = ({ match }) => {
         <h2>Error: Can't load {pokemonName} data.</h2>
       ) : (
         <div className="pokemon">
+          <nav aria-label="breadcrumb">
+            <Breadcrumb className="breadcrumb">
+              <li className="breadcrumb-item">
+                <Link to={`/generation/${generationName}`}>{generationName}</Link>
+              </li>
+              <li
+                className="breadcrumb-item active"
+                aria-current="page"
+              >
+                {pokemonName}
+              </li>
+            </Breadcrumb>
+          </nav>
           <PokemonName className="mb-4">{pokemonName}</PokemonName>
           <div className="row">
             <div className="col-sm-3">

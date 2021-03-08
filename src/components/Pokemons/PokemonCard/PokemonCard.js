@@ -24,7 +24,7 @@ const buildUnkownPokemon = (pokemonName) => ({
   }]
 })
 
-const PokemonCard = ({ pokemonName }) => {
+const PokemonCard = ({ generationName, pokemonName }) => {
   const {
     data: pokemon,
     hasError,
@@ -34,7 +34,7 @@ const PokemonCard = ({ pokemonName }) => {
   return (
     <Link
       className="card pokemon-card mb-3"
-      to={pokemon ? `/pokemon/${pokemonName}` : null}
+      to={pokemon ? `/generation/${generationName}/pokemon/${pokemonName}` : null}
     >
       {isLoading ? (
         <PokemonLoading>
