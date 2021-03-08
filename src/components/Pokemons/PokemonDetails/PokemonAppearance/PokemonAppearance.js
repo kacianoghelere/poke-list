@@ -24,7 +24,7 @@ const PokemonAppearance = ({ pokemon }) => {
   return (
     <div className="card mb-3 pokemon-appearance">
       <div className="card-body">
-        <h5 className="card-title">Appearance</h5>
+        <h3 className="card-title">Appearance</h3>
         <div className="d-flex flex-wrap">
           <PokemonAppearanceFrontAndBack
             pokemon={pokemon}

@@ -6,6 +6,8 @@ import Generations from './pages/Generations'
 import NotFound from './pages/NotFound'
 import Pokemon from './pages/Pokemon'
 import './App.scss'
+import './assets/fonts/Pokemon Hollow.ttf'
+import './assets/fonts/Pokemon Solid.ttf'
 
 const App = () => (
   <Router>

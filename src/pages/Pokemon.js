@@ -1,24 +1,38 @@
+import styled from 'styled-components'
+
 import useHttp from '../utils/hooks/useHttp'
 import PageLayout from '../components/Misc/PageLayout'
 import PokemonBasicInfo from '../components/Pokemons/PokemonBasicInfo/PokemonBasicInfo'
 import PokemonDetails from '../components/Pokemons/PokemonDetails/PokemonDetails'
 import PokemonStats from '../components/Pokemons/PokemonStats/PokemonStats'
 
+const PokemonName = styled.h1`
+  color: white;
+  text-transform: capitalize;
+  text-shadow: 3px 3px #00000033;
+`
+
 const Pokemon = ({ match }) => {
   const { pokemonName } = match.params
 
   const {
     data: pokemon,
+    hasError,
     isLoading
   } = useHttp(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
 
   return (
     <PageLayout>
       {isLoading ? (
-        <p>loading</p>
+        <img
+          alt="Loading..."
+          source="https://fc03.deviantart.net/fs70/f/2013/019/b/6/pokeball_by_zel_duh-d5s04qj.gif"
+        />
+      ) : hasError ? (
+        <h2>Error: Can't load {pokemonName} data.</h2>
       ) : (
         <div className="pokemon">
-          <h1 className="text-white text-capitalize my-4">{pokemonName}</h1>
+          <PokemonName className="mb-4">{pokemonName}</PokemonName>
           <div className="row">
             <div className="col-sm-3">
               <PokemonBasicInfo pokemon={pokemon} />

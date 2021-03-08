@@ -1,15 +1,22 @@
+import styled from 'styled-components'
+
+const AbilityBadge = styled.span`
+  font-size: 100%;
+  text-shadow: 1px 1px #00000055;
+`
+
 const PokemonAbilities = ({ pokemon }) => {
   return (
     <div className="card mb-3 pokemon-abilities">
       <div className="card-body">
-        <h5 className="card-title">Abilities</h5>
+        <h3 className="card-title">Abilities</h3>
         {pokemon.abilities.map(({ ability }) => (
-          <span
-            className="badge badge-pill badge-secondary mr-1"
+          <AbilityBadge
+            className="badge badge-pill badge-secondary mb-2 mr-2"
             key={ability.name}
           >
             {ability.name}
-          </span>
+          </AbilityBadge>
         ))}
       </div>
     </div>

@@ -8,7 +8,7 @@ const PokemonEvolutionChain = ({ pokemon }) => {
   return (
     <div className="card mb-3 pokemon-types">
       <div className="card-body">
-        <h5 className="card-title">Evolution Chain</h5>
+        <h3 className="card-title">Evolution Chain</h3>
         {isLoading ? (
           <LoadingSpinner className="pokemon-loading" />
         ) : hasError ? (

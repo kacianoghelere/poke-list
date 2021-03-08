@@ -1,17 +1,43 @@
+import { useState } from 'react'
+import styled from 'styled-components'
+
 import PokemonCard from '../PokemonCard/PokemonCard'
-import './PokemonsList.scss'
+
+const PokemonSearch = styled.input`
+  background-color: transparent;
+  border-color: white;
+  border-width: 1px;
+
+  &:focus {
+    background-color: #ffffff75;
+    border-color: white;
+    box-shadow: 0 0 0 0.2rem rgb(255 255 255 / 25%);
+  }
+
+  &::placeholder {
+    color: #ffffff75;
+  }
+`
 
 const PokemonsList = ({ pokemons }) => {
+  const [filter, setFilter] = useState('')
+
+  const filteredPokemons = (pokemons || []).filter(({ name }) => {
+    return !filter || name.toLowerCase().includes(filter.toLowerCase())
+  })
+
   return (
     <div className="pokemon-list">
-      <input
-        className="pokemon-search form-control mb-3"
-        type="search"
-        placeholder="Search pokemon"
+      <PokemonSearch
         aria-label="Search pokemon"
+        className="form-control mb-4"
+        onChange={(event) => setFilter(event.target.value)}
+        placeholder="Search pokemon"
+        type="search"
+        value={filter}
       />
       <div className="row row-cols-1 row-cols-md-2 row-cols-lg-5">
-        {pokemons.map((pokemon) => (
+        {filteredPokemons.map((pokemon) => (
           <div
             className="col mb-3"
             key={pokemon.name}

@@ -1,9 +1,14 @@
-import './PokemonType.scss'
+import styled from 'styled-components'
+
+const TypeBadge = styled.span`
+  font-size: 100%;
+  text-shadow: 1px 1px #00000055;
+`
 
 const PokemonType = ({ typeName }) => (
-  <small className={`badge badge-pill mr-1 pokemon-type pokemon-type-${typeName} colorize-text`}>
+  <TypeBadge className={`badge badge-pill mb-1 mr-1 pokemon-type-${typeName} colorize-text`}>
     {typeName}
-  </small>
+  </TypeBadge>
 )
 
 export default PokemonType

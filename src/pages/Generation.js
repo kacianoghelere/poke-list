@@ -16,7 +16,7 @@ const Generation = ({ match }) => {
         <p>loading</p>
       ) : (
         <>
-          <h1 className="text-white text-capitalize mt-4 mb-3">{generationName}</h1>
+          <h1 className="text-white text-capitalize mb-3">{generationName}</h1>
           <h3 className="text-white my-4">
             <strong>Main region</strong>:
             <span className="text-capitalize"> {generation.main_region.name}</span>
