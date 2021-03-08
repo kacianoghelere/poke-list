@@ -1,11 +1,16 @@
+import { useContext } from 'react'
 import styled from 'styled-components'
+
+import PokemonContext from '../../../../contexts/pokemon-context'
 
 const AbilityBadge = styled.span`
   font-size: 100%;
   text-shadow: 1px 1px #00000055;
 `
 
-const PokemonAbilities = ({ pokemon }) => {
+const PokemonAbilities = () => {
+  const { pokemon } = useContext(PokemonContext)
+
   return (
     <div className="card mb-3 pokemon-abilities">
       <div className="card-body">

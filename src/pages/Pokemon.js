@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
+import PokemonContext from '../contexts/pokemon-context'
 import useHttp from '../utils/hooks/useHttp'
 import PageLayout from '../components/Misc/PageLayout'
 import PokemonBasicInfo from '../components/Pokemons/PokemonBasicInfo/PokemonBasicInfo'
@@ -39,7 +40,7 @@ const Pokemon = ({ match }) => {
   } = useHttp(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
 
   return (
-    <PageLayout>
+    <PageLayout title={pokemonName}>
       {isLoading ? (
         <img
           alt="Loading..."
@@ -48,31 +49,35 @@ const Pokemon = ({ match }) => {
       ) : hasError ? (
         <h2>Error: Can't load {pokemonName} data.</h2>
       ) : (
-        <div className="pokemon">
-          <nav aria-label="breadcrumb">
-            <Breadcrumb className="breadcrumb">
-              <li className="breadcrumb-item">
-                <Link to={`/generation/${generationName}`}>{generationName}</Link>
-              </li>
-              <li
-                className="breadcrumb-item active"
-                aria-current="page"
-              >
-                {pokemonName}
-              </li>
-            </Breadcrumb>
-          </nav>
-          <PokemonName className="mb-4">{pokemonName}</PokemonName>
-          <div className="row">
-            <div className="col-sm-3">
-              <PokemonBasicInfo pokemon={pokemon} />
-              <PokemonStats pokemon={pokemon} />
-            </div>
-            <div className="col-sm-9">
-              <PokemonDetails pokemon={pokemon} />
+        <PokemonContext.Provider value={{ generationName, pokemon }}>
+          <div className="pokemon">
+            <nav aria-label="breadcrumb">
+              <Breadcrumb className="breadcrumb">
+                <li className="breadcrumb-item">
+                  <Link to={`/generation/${generationName}`}>{generationName}</Link>
+                </li>
+                <li
+                  className="breadcrumb-item active"
+                  aria-current="page"
+                >
+                  {pokemonName}
+                </li>
+              </Breadcrumb>
+            </nav>
+            <PokemonName className="mb-4">{pokemonName}</PokemonName>
+            <div className="row">
+              <div className="col-sm-3">
+                <PokemonBasicInfo />
+                <PokemonStats pokemon={pokemon} />
+              </div>
+              <div className="col-sm-9">
+                <PokemonDetails
+                  pokemon={pokemon}
+                />
+              </div>
             </div>
           </div>
-        </div>
+        </PokemonContext.Provider>
       )}
     </PageLayout>
   )

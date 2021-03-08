@@ -1,4 +1,10 @@
-const PokemonStats = ({ pokemon }) => {
+import { useContext } from 'react'
+
+import PokemonContext from '../../../contexts/pokemon-context'
+
+const PokemonStats = () => {
+  const { pokemon } = useContext(PokemonContext)
+
   return (
     <div className="card mb-3 pokemon-stats">
       <div className="card-body">

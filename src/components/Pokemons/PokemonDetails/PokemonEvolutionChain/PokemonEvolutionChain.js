@@ -1,8 +1,13 @@
+import { useContext } from 'react'
+
+import PokemonContext from '../../../../contexts/pokemon-context'
 import LoadingSpinner from '../../../Misc/LoadingSpinner'
 import PokemonCard from '../../PokemonCard/PokemonCard'
 import useEvolutionChain from '../../../../utils/hooks/useEvolutionChain'
 
-const PokemonEvolutionChain = ({ pokemon }) => {
+const PokemonEvolutionChain = () => {
+  const { generationName, pokemon } = useContext(PokemonContext)
+
   const { evolutions, hasError, isLoading } = useEvolutionChain(pokemon.name)
 
   return (
@@ -21,6 +26,7 @@ const PokemonEvolutionChain = ({ pokemon }) => {
                 key={speciesName}
               >
                 <PokemonCard
+                  generationName={generationName}
                   key={PokemonCard}
                   pokemonName={speciesName}
                 />

@@ -4,16 +4,14 @@ import PokemonEvolutionChain from './PokemonEvolutionChain/PokemonEvolutionChain
 import PokemonMoves from './PokemonMoves/PokemonMoves'
 import PokemonTypes from './PokemonTypes/PokemonTypes'
 
-const PokemonDetails = ({ pokemon }) => {
-  return (
-    <>
-      <PokemonAppearance pokemon={pokemon} />
-      <PokemonTypes pokemon={pokemon} />
-      <PokemonEvolutionChain pokemon={pokemon} />
-      <PokemonAbilities pokemon={pokemon} />
-      <PokemonMoves pokemon={pokemon} />
-    </>
-  )
-}
+const PokemonDetails = () => (
+  <>
+    <PokemonAppearance />
+    <PokemonTypes />
+    <PokemonEvolutionChain />
+    <PokemonAbilities />
+    <PokemonMoves />
+  </>
+)
 
 export default PokemonDetails

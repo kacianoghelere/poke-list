@@ -4,7 +4,20 @@ import styled from 'styled-components'
 import useHttp from '../../../utils/hooks/useHttp'
 import LoadingSpinner from '../../Misc/LoadingSpinner'
 import PokemonData from './PokemonData/PokemonData'
-import './PokemonCard.scss'
+
+const PokemonLink = styled(Link)`
+  color: #333;
+  border: none;
+  box-shadow: 0 1px 2px #00000030;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  .badge {
+    font-size: 75%;
+  }
+`
 
 const PokemonLoading = styled.div`
   align-items: center;
@@ -32,8 +45,8 @@ const PokemonCard = ({ generationName, pokemonName }) => {
   } = useHttp(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
 
   return (
-    <Link
-      className="card pokemon-card mb-3"
+    <PokemonLink
+      className="card mb-3"
       to={pokemon ? `/generation/${generationName}/pokemon/${pokemonName}` : null}
     >
       {isLoading ? (
@@ -45,7 +58,7 @@ const PokemonCard = ({ generationName, pokemonName }) => {
       ) : (
         <PokemonData pokemon={pokemon} />
       )}
-    </Link>
+    </PokemonLink>
   )
 }
 

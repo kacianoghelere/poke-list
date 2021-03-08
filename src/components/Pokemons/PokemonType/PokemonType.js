@@ -7,7 +7,9 @@ const TypeBadge = styled.span`
 `
 
 const PokemonType = ({ typeName }) => (
-  <TypeBadge className={`badge badge-pill mb-1 mr-1 pokemon-type-${typeName} colorize-text`}>
+  <TypeBadge
+    className={`badge badge-pill mb-1 mr-1 pokemon-type-${typeName} colorize-text`}
+  >
     {typeName}
   </TypeBadge>
 )

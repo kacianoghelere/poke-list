@@ -19,7 +19,7 @@ const Generation = ({ match }) => {
   } = useHttp(`https://pokeapi.co/api/v2/generation/${generationName}`)
 
   return (
-    <PageLayout>
+    <PageLayout title={generationName}>
       {isLoading ? (
         <p>loading</p>
       ) : (

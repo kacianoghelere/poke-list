@@ -1,4 +1,10 @@
-const PokemonBasicInfo = ({ pokemon }) => {
+import { useContext } from 'react'
+
+import PokemonContext from '../../../contexts/pokemon-context'
+
+const PokemonBasicInfo = () => {
+  const { pokemon } = useContext(PokemonContext)
+
   const officialArtwork = pokemon?.sprites?.other['official-artwork'].front_default
 
   return (

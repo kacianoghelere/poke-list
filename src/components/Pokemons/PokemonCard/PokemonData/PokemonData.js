@@ -10,6 +10,20 @@ const PokemonImage = styled(PokemonSprite)`
   object-fit: contain;
 `
 
+const PokemonCardBody = styled.div`
+  position: relative;
+`
+
+const PokemonId = styled.small`
+  background-color: #fff;
+  border-top-right-radius: 4px;
+  color: #999;
+  left: 0;
+  padding: 4px 16px;
+  position: absolute;
+  top: -12px;
+`
+
 const PokemonData = ({ pokemon }) => {
   const pokemonTypeClass = `pokemon-type-${pokemon?.types[0].type.name}`
 
@@ -19,11 +33,11 @@ const PokemonData = ({ pokemon }) => {
         className={`card-img-top ${pokemonTypeClass} faded`}
         pokemon={pokemon}
       />
-      <div className="card-body">
-        <small className="pokemon-id">#{pokemon.id}</small>
+      <PokemonCardBody className="card-body">
+        <PokemonId>#{pokemon.id}</PokemonId>
         <h5 className="text-capitalize mb-2">{pokemon.name}</h5>
         <PokemonTypesList pokemon={pokemon} />
-      </div>
+      </PokemonCardBody>
     </>
   )
 }

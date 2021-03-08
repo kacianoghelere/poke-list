@@ -1,26 +1,11 @@
-import PokemonSprite from '../../PokemonSprite/PokemonSprite'
+import { useContext } from 'react'
 
-const PokemonAppearanceFrontAndBack = ({ pokemon, frontSpriteKey, backSpriteKey, gender }) => (
-  <div className="justify-content-center">
-    <div className="w-100">
-      <PokemonSprite
-        className="img-fluid"
-        pokemon={pokemon}
-        spriteKey={frontSpriteKey}
-      />
-      <PokemonSprite
-        className="img-fluid"
-        pokemon={pokemon}
-        spriteKey={backSpriteKey}
-      />
-    </div>
-    <h6 className="text-center">
-      <strong>{gender}</strong>
-    </h6>
-  </div>
-)
+import PokemonContext from '../../../../contexts/pokemon-context'
+import PokemonAppearanceFrontAndBack from './PokemonAppearanceFrontAndBack/PokemonAppearanceFrontAndBack'
 
-const PokemonAppearance = ({ pokemon }) => {
+const PokemonAppearance = () => {
+  const { pokemon } = useContext(PokemonContext)
+
   return (
     <div className="card mb-3 pokemon-appearance">
       <div className="card-body">

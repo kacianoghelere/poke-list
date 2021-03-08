@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
@@ -10,8 +12,12 @@ const PageLogo = styled.img`
   width: 32px;
 `
 
-const PageLayout = ({ children }) => {
+const PageLayout = ({ children, title = '' }) => {
   const navbarTitle = 'Pokelist!'
+
+  useEffect(() => {
+    document.title = navbarTitle + (title ? ` | ${title}` : '')
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <PageWrapper>
