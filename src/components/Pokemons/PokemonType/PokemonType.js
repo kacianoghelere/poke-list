@@ -3,6 +3,7 @@ import styled from 'styled-components'
 const TypeBadge = styled.span`
   font-size: 100%;
   text-shadow: 1px 1px #00000055;
+  text-transform: capitalize;
 `
 
 const PokemonType = ({ typeName }) => (

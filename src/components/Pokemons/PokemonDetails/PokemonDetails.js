@@ -9,9 +9,9 @@ const PokemonDetails = ({ pokemon }) => {
     <>
       <PokemonAppearance pokemon={pokemon} />
       <PokemonTypes pokemon={pokemon} />
+      <PokemonEvolutionChain pokemon={pokemon} />
       <PokemonAbilities pokemon={pokemon} />
       <PokemonMoves pokemon={pokemon} />
-      <PokemonEvolutionChain pokemon={pokemon} />
     </>
   )
 }
