@@ -24,6 +24,10 @@ const PokemonId = styled.small`
   top: -12px;
 `
 
+const PokemonName = styled.h5`
+  text-transform: capitalize;
+`
+
 const PokemonData = ({ pokemon }) => {
   const pokemonTypeClass = `pokemon-type-${pokemon?.types[0].type.name}`
 
@@ -32,10 +36,11 @@ const PokemonData = ({ pokemon }) => {
       <PokemonImage
         className={`card-img-top ${pokemonTypeClass} faded`}
         pokemon={pokemon}
+        role="pokemon-image"
       />
       <PokemonCardBody className="card-body">
         <PokemonId>#{pokemon.id}</PokemonId>
-        <h5 className="text-capitalize mb-2">{pokemon.name}</h5>
+        <PokemonName className="mb-2">{pokemon.name}</PokemonName>
         <PokemonTypesList pokemon={pokemon} />
       </PokemonCardBody>
     </>

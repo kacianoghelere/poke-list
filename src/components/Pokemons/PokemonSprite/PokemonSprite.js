@@ -8,7 +8,7 @@ const PokemonImage = styled(Img)`
 
 const PokemonSprite = ({ pokemon, spriteKey = 'front_default', ...props }) => (
   <PokemonImage
-    alt={pokemon.name}
+    alt={`${pokemon.name}-sprite`}
     src={[
       pokemon?.sprites[spriteKey],
       'https://cdn.iconscout.com/icon/free/png-256/question-mark-2646696-2194193.png'

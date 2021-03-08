@@ -1,6 +1,6 @@
 import useHttp from 'utils/hooks/useHttp'
 import PageError from 'components/Misc/PageError'
-import PageLayout from 'components/Misc/PageLayout'
+import PageLayout from 'components/Misc/PageLayout/PageLayout'
 import PageLoadingIndicator from 'components/Misc/PageLoadingIndicator'
 import GenerationsList from 'components/Generations/GenerationsList'
 

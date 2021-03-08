@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import useHttp from 'utils/hooks/useHttp'
 import PageBreadcrumb from 'components/Misc/PageBreadcrumb'
 import PageError from 'components/Misc/PageError'
-import PageLayout from 'components/Misc/PageLayout'
+import PageLayout from 'components/Misc/PageLayout/PageLayout'
 import PageLoadingIndicator from 'components/Misc/PageLoadingIndicator'
 import PokemonsList from 'components/Pokemons/PokemonList/PokemonsList'
 
