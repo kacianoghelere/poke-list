@@ -5,7 +5,10 @@ const LoadingSpinner = (props) => (
     className="d-flex justify-content-center text-danger"
     {...props}
   >
-    <div className="spinner-border" role="status">
+    <div
+      className="spinner-border"
+      role="status"
+    >
       <span className="sr-only">Loading...</span>
     </div>
   </div>

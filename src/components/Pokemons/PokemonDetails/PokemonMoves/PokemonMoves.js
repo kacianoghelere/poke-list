@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import styled from 'styled-components'
 
-import PokemonContext from '../../../../contexts/pokemon-context'
+import PokemonContext from 'contexts/pokemon-context'
 
 const MoveBadge = styled.span`
   font-size: 100%;
@@ -14,7 +14,7 @@ const PokemonMoves = () => {
   return (
     <div className="card mb-3 pokemon-moves">
       <div className="card-body">
-        <h3 className="card-title">Moves</h3>
+        <h3 className="card-title mb-3">Moves</h3>
         {pokemon.moves.length ? (
           pokemon.moves.map(({ move }) => (
             <MoveBadge

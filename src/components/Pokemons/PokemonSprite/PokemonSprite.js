@@ -1,6 +1,5 @@
-import styled from 'styled-components'
-
 import { Img } from 'react-image'
+import styled from 'styled-components'
 
 const PokemonImage = styled(Img)`
   max-height: 96px;

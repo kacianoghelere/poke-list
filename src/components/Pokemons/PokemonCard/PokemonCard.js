@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-import useHttp from '../../../utils/hooks/useHttp'
-import LoadingSpinner from '../../Misc/LoadingSpinner'
+import useHttp from 'utils/hooks/useHttp'
+import LoadingSpinner from 'components/Misc/LoadingSpinner'
 import PokemonData from './PokemonData/PokemonData'
 
 const PokemonLink = styled(Link)`

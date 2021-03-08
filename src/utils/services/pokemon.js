@@ -1,6 +1,6 @@
-import httpClient from '../services/http-client'
+import httpClient from './http-client'
 
-const getPokemonSpecies = async (pokemonName) => {
+export const getPokemonSpecies = async (pokemonName) => {
   const url = `https://pokeapi.co/api/v2/pokemon-species/${pokemonName}`
 
   const pokemonSpecies = await httpClient.get(url)
@@ -8,7 +8,20 @@ const getPokemonSpecies = async (pokemonName) => {
   return pokemonSpecies
 }
 
-const getEvolutionChain = async (pokemonName) => {
+export const getPokemonData = async (pokemonName) => {
+  const url = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`
+
+  const pokemon = await httpClient.get(url)
+
+  const pokemonSpecies = await getPokemonSpecies(pokemonName)
+
+  return {
+    ...pokemon,
+    ...pokemonSpecies
+  }
+}
+
+export const getEvolutionChain = async (pokemonName) => {
   const pokemonSpecies = await getPokemonSpecies(pokemonName)
 
   const evolutionChain = await httpClient.get(pokemonSpecies.evolution_chain.url)
@@ -36,7 +49,7 @@ export const buildEvolutionChain = async (pokemonName) => {
         evolutions.push({
           speciesName: evoData.evolves_to[i].species.name,
           minLevel: !evoData.evolves_to[i]? 1 : evoData.evolves_to[i].min_level
-       })
+        })
       }
     }
 

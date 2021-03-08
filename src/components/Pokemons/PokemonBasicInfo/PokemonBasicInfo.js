@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 
-import PokemonContext from '../../../contexts/pokemon-context'
+import PokemonContext from 'contexts/pokemon-context'
 
 const PokemonBasicInfo = () => {
   const { pokemon } = useContext(PokemonContext)
@@ -21,10 +21,13 @@ const PokemonBasicInfo = () => {
           <strong>Base exp</strong>: {pokemon.base_experience}
         </div>
         <div className="list-group-item">
-          <strong>Height</strong>: {pokemon.height}
+          <strong>Height</strong>: {pokemon.height / 10} m.
         </div>
         <div className="list-group-item">
-          <strong>Weight</strong>: {pokemon.weight}
+          <strong>Weight</strong>: {pokemon.weight / 10} kg.
+        </div>
+        <div className="list-group-item">
+          <strong>Habitat</strong>: {pokemon?.habitat?.name || '???'}
         </div>
       </div>
     </div>

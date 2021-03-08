@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
 
-import { buildEvolutionChain } from 'utils/services/pokemon'
+import { getPokemonData } from 'utils/services/pokemon'
 
-const useEvolutionChain = (pokemonName) => {
+const usePokemonData = (pokemonName) => {
   const [isLoading, setLoading] = useState(true)
 
-  const [evolutions, setEvolutions] = useState()
+  const [pokemon, setPokemonData] = useState()
 
   const [hasError, setHasError] = useState(false)
 
@@ -15,9 +15,9 @@ const useEvolutionChain = (pokemonName) => {
 
       setHasError(false)
 
-      const response = await buildEvolutionChain(pokemonName)
+      const response = await getPokemonData(pokemonName)
 
-      setEvolutions(response)
+      setPokemonData(response)
     } catch (error) {
       setHasError(true)
     } finally {
@@ -29,15 +29,15 @@ const useEvolutionChain = (pokemonName) => {
     fetchEvolutions(pokemonName)
 
     return () => {
-      setEvolutions(null)
+      setPokemonData(null)
     }
   }, [pokemonName])
 
   return {
-    evolutions,
+    pokemon,
     hasError,
     isLoading
   }
 }
 
-export default useEvolutionChain
+export default usePokemonData

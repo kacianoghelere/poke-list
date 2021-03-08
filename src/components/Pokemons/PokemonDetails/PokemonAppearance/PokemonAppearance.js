@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 
-import PokemonContext from '../../../../contexts/pokemon-context'
+import PokemonContext from 'contexts/pokemon-context'
 import PokemonAppearanceFrontAndBack from './PokemonAppearanceFrontAndBack/PokemonAppearanceFrontAndBack'
 
 const PokemonAppearance = () => {
@@ -9,20 +9,22 @@ const PokemonAppearance = () => {
   return (
     <div className="card mb-3 pokemon-appearance">
       <div className="card-body">
-        <h3 className="card-title">Appearance</h3>
+        <h3 className="card-title mb-3">Appearance</h3>
         <div className="d-flex flex-wrap">
           <PokemonAppearanceFrontAndBack
             pokemon={pokemon}
             frontSpriteKey="front_default"
             backSpriteKey="back_default"
-            gender="Male"
+            gender={pokemon.has_gender_differences ? 'Male' : ''}
           />
-          <PokemonAppearanceFrontAndBack
-            pokemon={pokemon}
-            frontSpriteKey="front_female"
-            backSpriteKey="back_female"
-            gender="Female"
-          />
+          {pokemon.has_gender_differences && (
+            <PokemonAppearanceFrontAndBack
+              pokemon={pokemon}
+              frontSpriteKey="front_female"
+              backSpriteKey="back_female"
+              gender="Female"
+            />
+          )}
         </div>
       </div>
     </div>

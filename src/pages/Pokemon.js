@@ -1,79 +1,85 @@
-import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-import PokemonContext from '../contexts/pokemon-context'
-import useHttp from '../utils/hooks/useHttp'
-import PageLayout from '../components/Misc/PageLayout'
-import PokemonBasicInfo from '../components/Pokemons/PokemonBasicInfo/PokemonBasicInfo'
-import PokemonDetails from '../components/Pokemons/PokemonDetails/PokemonDetails'
-import PokemonStats from '../components/Pokemons/PokemonStats/PokemonStats'
-
-const Breadcrumb = styled.ol`
-  background-color: #fff5;
-
-  .breadcrumb-item,
-  .breadcrumb-item a {
-    color: white;
-    text-shadow: 1px 1px #0003;
-
-    &.active,
-    &:active {
-      color: white;
-      font-weight: bold;
-    }
-  }
-`
+import PokemonContext from 'contexts/pokemon-context'
+import usePokemonData from 'utils/hooks/usePokemonData'
+import PageBreadcrumb from 'components/Misc/PageBreadcrumb'
+import PageError from 'components/Misc/PageError'
+import PageLayout from 'components/Misc/PageLayout'
+import PageLoadingIndicator from 'components/Misc/PageLoadingIndicator'
+import PokemonBasicInfo from 'components/Pokemons/PokemonBasicInfo/PokemonBasicInfo'
+import PokemonDetails from 'components/Pokemons/PokemonDetails/PokemonDetails'
+import PokemonFlavorText from 'components/Pokemons/PokemonFlavorText/PokemonFlavorText'
+import PokemonStats from 'components/Pokemons/PokemonStats/PokemonStats'
 
 const PokemonName = styled.h1`
   color: white;
   text-transform: capitalize;
-  text-shadow: 3px 3px #00000033;
+
+  span:not(.badge) {
+    text-shadow: 3px 3px #00000033;
+  }
+
+  span.badge {
+    font-size: 60%;
+  }
 `
+
+const SpecialBadge = ({ children }) => (
+  <span className="badge badge-secondary bg-light text-dark rounded-pill ml-3">
+    <strong>{children}</strong>
+  </span>
+)
 
 const Pokemon = ({ match }) => {
   const { generationName, pokemonName } = match.params
 
   const {
-    data: pokemon,
+    pokemon,
     hasError,
     isLoading
-  } = useHttp(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
+  } = usePokemonData(pokemonName)
+
+  const breadcrumbSections = [
+    {
+      name: 'Generations',
+      link: `/`
+    },
+    {
+      name: generationName,
+      link: `/generation/${generationName}`
+    },
+    {
+      name: pokemonName
+    }
+  ]
 
   return (
     <PageLayout title={pokemonName}>
       {isLoading ? (
-        <img
-          alt="Loading..."
-          source="https://fc03.deviantart.net/fs70/f/2013/019/b/6/pokeball_by_zel_duh-d5s04qj.gif"
-        />
+        <PageLoadingIndicator />
       ) : hasError ? (
-        <h2>Error: Can't load {pokemonName} data.</h2>
+        <PageError resourceName={pokemonName} />
       ) : (
         <PokemonContext.Provider value={{ generationName, pokemon }}>
           <div className="pokemon">
-            <nav aria-label="breadcrumb">
-              <Breadcrumb className="breadcrumb">
-                <li className="breadcrumb-item">
-                  <Link to={`/generation/${generationName}`}>{generationName}</Link>
-                </li>
-                <li
-                  className="breadcrumb-item active"
-                  aria-current="page"
-                >
-                  {pokemonName}
-                </li>
-              </Breadcrumb>
-            </nav>
-            <PokemonName className="mb-4">{pokemonName}</PokemonName>
+            <PageBreadcrumb sections={breadcrumbSections} />
+            <PokemonName className="mb-4">
+              <span>{pokemonName}</span>
+              {pokemon.is_legendary && (
+                <SpecialBadge>Legendary</SpecialBadge>
+              )}
+              {pokemon.is_mythical && (
+                <SpecialBadge>Mythical</SpecialBadge>
+              )}
+            </PokemonName>
             <div className="row">
-              <div className="col-sm-3">
+              <div className="col-12 col-md-4 col-lg-3">
                 <PokemonBasicInfo />
-                <PokemonStats pokemon={pokemon} />
+                <PokemonStats />
               </div>
-              <div className="col-sm-9">
-                <PokemonDetails
-                  pokemon={pokemon}
-                />
+              <div className="col-12 col-md-8 col-lg-9">
+                <PokemonFlavorText />
+                <PokemonDetails />
               </div>
             </div>
           </div>

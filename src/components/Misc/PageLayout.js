@@ -1,5 +1,4 @@
 import { useEffect } from 'react'
-
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
@@ -13,7 +12,7 @@ const PageLogo = styled.img`
 `
 
 const PageLayout = ({ children, title = '' }) => {
-  const navbarTitle = 'Pokelist!'
+  const navbarTitle = 'PokeList'
 
   useEffect(() => {
     document.title = navbarTitle + (title ? ` | ${title}` : '')

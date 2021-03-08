@@ -1,9 +1,9 @@
 import { useContext } from 'react'
 
-import PokemonContext from '../../../../contexts/pokemon-context'
-import LoadingSpinner from '../../../Misc/LoadingSpinner'
-import PokemonCard from '../../PokemonCard/PokemonCard'
-import useEvolutionChain from '../../../../utils/hooks/useEvolutionChain'
+import PokemonContext from 'contexts/pokemon-context'
+import useEvolutionChain from 'utils/hooks/useEvolutionChain'
+import LoadingSpinner from 'components/Misc/LoadingSpinner'
+import PokemonCard from 'components/Pokemons/PokemonCard/PokemonCard'
 
 const PokemonEvolutionChain = () => {
   const { generationName, pokemon } = useContext(PokemonContext)
@@ -13,7 +13,7 @@ const PokemonEvolutionChain = () => {
   return (
     <div className="card mb-3 pokemon-types">
       <div className="card-body">
-        <h3 className="card-title">Evolution Chain</h3>
+        <h3 className="card-title mb-3">Evolution Chain</h3>
         {isLoading ? (
           <LoadingSpinner className="pokemon-loading" />
         ) : hasError ? (

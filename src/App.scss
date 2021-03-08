@@ -102,6 +102,13 @@ h1, h2, h3, h4, h5, h6, .navbar-brand {
   font-family: 'DotGothic16', sans-serif;
 }
 
-a, span, p, small, strong {
+a,
+span,
+p,
+small,
+strong,
+input,
+input::placeholder {
   font-family: 'Roboto', sans-serif;
+  font-family: 'DotGothic16', sans-serif;
 }

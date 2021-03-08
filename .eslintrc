@@ -1,0 +1,92 @@
+{
+  "root": true,
+  "env": {
+    "jest": true
+  },
+  "extends": [
+    "react-app",
+    "react-app/jest"
+  ],
+  "plugins": [
+    "import",
+    "react-hooks"
+  ],
+  "rules": {
+    "no-console": "error",
+    "no-unused-vars": "error",
+    "no-trailing-spaces": "error",
+    "no-useless-escape": 0,
+    "comma-dangle": ["error", "never"],
+    "prettier/prettier": 0,
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "error",
+    "indent": [
+      "error",
+      2,
+      {
+        "SwitchCase": 1,
+        "ignoredNodes": [
+          "TemplateLiteral"
+        ]
+      }
+    ],
+    "semi": ["error", "never"],
+    "no-shadow": 0,
+    "object-curly-spacing": [
+      "error",
+      "always"
+    ],
+    "array-bracket-spacing": [
+      "error",
+      "never"
+    ],
+    "no-empty": [
+      "error",
+      {
+        "allowEmptyCatch": true
+      }
+    ],
+    "no-duplicate-imports": [
+      "error"
+    ],
+    "no-multiple-empty-lines": [
+      "error",
+      {
+        "max": 1
+      }
+    ],
+    "import/order": ["error", {
+      "pathGroups": [
+        {
+          "pattern": "~/**",
+          "group": "internal"
+        },
+        {
+          "pattern": "../**",
+          "group": "internal"
+        },
+        {
+          "pattern": "./**",
+          "group": "internal"
+        },
+        {
+          "pattern": ".",
+          "group": "internal"
+        }
+      ],
+      "groups": [["builtin", "external"], "internal"],
+      "newlines-between": "always"
+    }],
+    "react/jsx-max-props-per-line": [1, { "when": "always" }]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["src"],
+        "alias": {
+          "~": "./src"
+        }
+      }
+    }
+  }
+}

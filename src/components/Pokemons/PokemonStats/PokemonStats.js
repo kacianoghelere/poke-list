@@ -1,6 +1,11 @@
 import { useContext } from 'react'
+import styled from 'styled-components'
 
-import PokemonContext from '../../../contexts/pokemon-context'
+import PokemonContext from 'contexts/pokemon-context'
+
+const ProgressBar = styled.div`
+  background-color: #ee5281;
+`
 
 const PokemonStats = () => {
   const { pokemon } = useContext(PokemonContext)
@@ -16,7 +21,19 @@ const PokemonStats = () => {
             className="list-group-item"
             key={stat.name}
           >
-            <strong className="text-capitalize">{stat.name}</strong>: {base_stat}
+            <p className="mb-1">
+              <strong className="text-capitalize">{stat.name}</strong>: {base_stat}
+            </p>
+            <div className="progress">
+              <ProgressBar
+                className="progress-bar"
+                role="progressbar"
+                style={{ width: `${100 * base_stat/255}%` }}
+                aria-valuenow={base_stat}
+                aria-valuemin="0"
+                aria-valuemax="255"
+              />
+            </div>
           </div>
         ))}
       </div>
