@@ -37,7 +37,7 @@ const PokemonsList = ({ generation }) => {
         type="search"
         value={filter}
       />
-      <div className="row row-cols-1 row-cols-md-2 row-cols-lg-5">
+      <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 row-cols-xl-5">
         {filteredPokemons.map((pokemon) => (
           <div
             className="col mb-3"
