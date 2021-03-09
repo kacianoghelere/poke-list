@@ -35,8 +35,8 @@ O *deploy* do projeto no ambiente de produção (Heroku) acontece toda vez que u
 
 ## Screenshots
 
-![screencapture-pokeapi-list-herokuapp-generation-generation-i-2021-03-08-21_04_30](https://user-images.githubusercontent.com/4911357/110398337-709dde80-8052-11eb-86cc-c5abbfadbbc6.png)
-
 ![screencapture-pokeapi-list-herokuapp-2021-03-08-21_04_52](https://user-images.githubusercontent.com/4911357/110398339-71367500-8052-11eb-80ee-e36ca63fa07c.png)
+
+![screencapture-pokeapi-list-herokuapp-generation-generation-i-2021-03-08-21_04_30](https://user-images.githubusercontent.com/4911357/110398337-709dde80-8052-11eb-86cc-c5abbfadbbc6.png)
 
 ![screencapture-pokeapi-list-herokuapp-generation-generation-i-pokemon-venusaur-2021-03-08-21_04_01](https://user-images.githubusercontent.com/4911357/110398341-71cf0b80-8052-11eb-945e-0fcdbb667113.png)
