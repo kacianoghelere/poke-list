@@ -6,6 +6,8 @@ Este é um projeto construído com Reactjs para exibir dados consumidos a partir
 
 Nele, você poderá visualizar a lista de gerações de pokemons, a lista de pokemons contida em cada geração e alguns detalhes de cada um dos pokemons.
 
+O projeto pode ser acessado a partir do endereço a seguir: [https://pokeapi-list.herokuapp.com/](https://pokeapi-list.herokuapp.com/)
+
 ## Como executar o código
 
 Antes de qualquer coisa, certifique-se de que seu ambiente de desenvolvimento conta com `node`, `npm` e `yarn` instalados.
