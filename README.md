@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+![743977](https://user-images.githubusercontent.com/4911357/110398342-7267a200-8052-11eb-9bd5-4562f0f5dbd2.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Poke List
 
-## Available Scripts
+Este é um projeto construído com Reactjs para exibir dados consumidos a partir da [PokeApi.co](https://pokeapi.co/).
 
-In the project directory, you can run:
+Nele, você poderá visualizar a lista de gerações de pokemons, a lista de pokemons contida em cada geração e alguns detalhes de cada um dos pokemons.
 
-### `yarn start`
+## Como executar o código
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Antes de qualquer coisa, certifique-se de que seu ambiente de desenvolvimento conta com `node`, `npm` e `yarn` instalados.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Após isto, basta executar os comandos abaixo para obter os respectivas resultados:
 
-### `yarn test`
+- `yarn start`: Executar o projeto e abrir a página no navegador;
+- `yarn lint`: Executar a validação de código do *Eslint*;
+- `yarn test`: Executar os arquivos de testes dentro do projeto;
+- `yarn build`: Construir o projeto para produção.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Observações
 
-### `yarn build`
+Este projeto conta com o auxílio do *Github Actions* para executar as seguintes tarefas:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Verificar as regras do *Eslint*;
+- Executar de testes do projeto.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+O *deploy* do projeto no ambiente de produção (Heroku) acontece toda vez que um `push` é realizado no *branch* `main`.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Pontos de melhoria
 
-### `yarn eject`
+- Adicionar um processo de `lazy loading` para cada um dos *cards* de *pokemons* para melhorar a performance do projeto;
+- Adicionar mais arquivos de testes para melhorar a cobertura;
+- Implementar o `redux` para ser o responsável pela centralização de dados e enfileirar as requisições de dados;
+- Implementar o `typescript`.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Screenshots
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![screencapture-pokeapi-list-herokuapp-generation-generation-i-2021-03-08-21_04_30](https://user-images.githubusercontent.com/4911357/110398337-709dde80-8052-11eb-86cc-c5abbfadbbc6.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![screencapture-pokeapi-list-herokuapp-2021-03-08-21_04_52](https://user-images.githubusercontent.com/4911357/110398339-71367500-8052-11eb-80ee-e36ca63fa07c.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![screencapture-pokeapi-list-herokuapp-generation-generation-i-pokemon-venusaur-2021-03-08-21_04_01](https://user-images.githubusercontent.com/4911357/110398341-71cf0b80-8052-11eb-945e-0fcdbb667113.png)
